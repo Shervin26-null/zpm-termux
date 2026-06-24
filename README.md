@@ -21,8 +21,23 @@ License: GNU General Public License v3.0
 - Native compiled binary support
 - Debian support
 - Termux support
+- Dependency checks
 - Verbose output mode
 - JSON output mode
+
+---
+
+# Supported Platforms
+
+## Debian
+
+Debian support is now available.
+
+zpm works with Debian-based systems using APT.
+
+## Termux
+
+Termux support is available.
 
 ---
 
@@ -72,7 +87,7 @@ Install multiple packages:
 
     zpm add nano git curl -y
 
-Remove:
+Remove packages:
 
     zpm remove nano
 
@@ -90,7 +105,7 @@ Information:
 
 ---
 
-# Build
+# Building
 
 Build:
 
@@ -108,9 +123,9 @@ Install current build:
 
 # Status
 
-zpm Debian support is nearing completion.
+zpm 0.0.3-alpha includes working Debian support.
 
-This project is still alpha software and may change.
+The project is still alpha software and may change.
 
 ---
 

@@ -8,9 +8,9 @@ zpm is a lightweight package manager wrapper focused on simplicity and speed.
 
 ### Added
 
+- Debian support
 - Multi-package installation support
-- Improved Debian build system
-- Dependency checking
+- Improved dependency checking
 - Cleaner installation workflow
 
 ### Fixed
@@ -22,20 +22,21 @@ zpm is a lightweight package manager wrapper focused on simplicity and speed.
 
 ### Changed
 
-- Rewritten Makefile
-- Improved Debian installation process
-- `make install` now installs the current binary
+- Rewritten build system
+- Improved Termux support
+- Improved Debian support
+- `make install` installs the current binary
 
 ## Platform Status
 
 ### Debian
 
-Support is close to completion.
+Support is now available.
 
 ### Termux
 
-Supported separately.
+Supported.
 
 ## Notes
 
-This is an alpha release.
+This is still an alpha release.
