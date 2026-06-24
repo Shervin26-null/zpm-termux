@@ -6,7 +6,7 @@ zpm is a fast and simple package manager wrapper written in Lua.
 
 It provides a clean CLI experience while using the system package manager underneath.
 
-Current version: 0.0.3-alpha
+Current version: 0.0.4-alpha
 
 License: GNU General Public License v3.0
 
@@ -123,7 +123,7 @@ Install current build:
 
 # Status
 
-zpm 0.0.3-alpha includes working Debian support.
+zpm 0.0.4-alpha includes working Debian support.
 
 The project is still alpha software and may change.
 

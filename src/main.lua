@@ -2,7 +2,7 @@ local ZPM={}
 
 ZPM.name="zpm"
 ZPM.full="Zenith Package Matrix"
-ZPM.version="0.0.2-alpha"
+ZPM.version="0.0.4-alpha"
 
 
 local UI={}
@@ -401,7 +401,7 @@ register("help",function()
 
 print(
 [[
-zpm 0.0.2-alpha
+zpm 0.0.4-alpha
 
 Usage:
   zpm command [options]

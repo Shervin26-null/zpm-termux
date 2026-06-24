@@ -51,6 +51,5 @@ uninstall:
 	rm -f $(PREFIX)/$(NAME)
 
 clean:
-	rm -f $(NAME)
-	rm -f main.luastatic.c
+	@rm -rf main.luastatic.c $(NAME) src/1 zpm
 	@echo "Cleaned"
