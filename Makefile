@@ -1,39 +1,54 @@
 NAME=zpm
 SRC=src/main.lua
 
-PREFIX ?= /usr/local
+PREFIX ?= /usr/bin
 
-LUAJIT_INC=/usr/include/luajit-2.1
-LUAJIT_LIB=/usr/lib/aarch64-linux-gnu
+LUAJIT_INC ?= /usr/include/luajit-2.1
+LUAJIT_LIB ?= /usr/lib/aarch64-linux-gnu
+
+CC ?= cc
+LUASTATIC ?= luastatic
+
+CFLAGS=-Os
+LDFLAGS=-rdynamic -lm
 
 .PHONY: all build install uninstall clean check
 
-all: build
+all: check build
 
 check:
-	@command -v luajit >/dev/null || (echo "Missing LuaJIT"; echo "Install: sudo apt install luajit"; exit 1)
-	@command -v luastatic >/dev/null || (echo "Missing luastatic"; echo "Install: sudo luarocks install luastatic"; exit 1)
+	@command -v $(CC) >/dev/null || (echo "Missing compiler"; exit 1)
+	@command -v luajit >/dev/null || (echo "Missing luajit"; exit 1)
+	@command -v $(LUASTATIC) >/dev/null || (echo "Missing luastatic"; exit 1)
+	@test -e $(LUAJIT_LIB)/libluajit-5.1.so || (echo "Missing LuaJIT library"; exit 1)
+	@echo "Dependencies OK"
 
 build: check
 	@echo "Building $(NAME)..."
 
-	luastatic $(SRC) \
+	$(LUASTATIC) $(SRC) \
 		-lluajit-5.1 \
 		-I$(LUAJIT_INC) \
 		-L$(LUAJIT_LIB)
 
-	mv -f main $(NAME)
+	$(CC) $(CFLAGS) main.luastatic.c \
+		$(LDFLAGS) \
+		-L$(LUAJIT_LIB) \
+		-l:libluajit-5.1.so \
+		-I$(LUAJIT_INC) \
+		-o $(NAME)
+
 	chmod +x $(NAME)
 
 	@echo "Built $(NAME)"
 
 install:
-	install -Dm755 ./zpm /usr/bin/zpm
-	@echo "Installed: /usr/bin/zpm"
+	@test -f ./$(NAME) || (echo "Run make first"; exit 1)
+	install -Dm755 ./$(NAME) $(PREFIX)/$(NAME)
+	@echo "Installed $(PREFIX)/$(NAME)"
 
 uninstall:
-	rm -f $(PREFIX)/bin/$(NAME)
-	@echo "Uninstalled $(NAME)"
+	rm -f $(PREFIX)/$(NAME)
 
 clean:
 	rm -f $(NAME)
