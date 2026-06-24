@@ -1,30 +1,41 @@
-# zpm 0.0.2-alpha
+# zpm 0.0.3-alpha
 
 ## Description
 
-zpm is a lightweight package manager wrapper focused on simplicity, speed, and a clean CLI experience.
+zpm is a lightweight package manager wrapper focused on simplicity and speed.
 
 ## Changes
 
 ### Added
-- Improved command handling
-- Cleaner CLI output
-- More stable package operations
 
-### Changed
-- Removed the lock mechanism temporarily
-  - The old lock system caused stale lock issues after interrupted processes
-  - It will be redesigned and reintroduced properly in a future update
+- Multi-package installation support
+- Improved Debian build system
+- Dependency checking
+- Cleaner installation workflow
 
 ### Fixed
-- Fixed build/runtime issues caused by lock handling
-- Improved reliability during package operations
 
-### Debian version
+- Fixed add command only accepting one package
+- Fixed argument handling
+- Fixed LuaJIT linking issues
+- Fixed build reliability problems
 
-The Debian version of zpm is very close to completion.
-It is being adapted separately for normal Debian-based systems with proper paths and packaging behavior.
+### Changed
+
+- Rewritten Makefile
+- Improved Debian installation process
+- `make install` now installs the current binary
+
+## Platform Status
+
+### Debian
+
+Support is close to completion.
+
+### Termux
+
+Supported separately.
 
 ## Notes
 
-This is still an alpha release. Expect changes while the project stabilizes.
+This is an alpha release.
