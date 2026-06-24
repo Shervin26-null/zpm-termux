@@ -1,42 +1,69 @@
-# zpm 0.0.3-alpha
+# zpm 0.0.4-alpha
 
-## Description
+## Added
 
-zpm is a lightweight package manager wrapper focused on simplicity and speed.
+New Debian package commands:
 
-## Changes
+- `zpm list`
+  - List installed packages
 
-### Added
+- `zpm outdated`
+  - Show available upgrades
 
-- Debian support
-- Multi-package installation support
-- Improved dependency checking
-- Cleaner installation workflow
+- `zpm autoremove`
+  - Remove unused dependencies
 
-### Fixed
+- `zpm purge <pkg>`
+  - Remove packages and configuration
 
-- Fixed add command only accepting one package
-- Fixed argument handling
-- Fixed LuaJIT linking issues
-- Fixed build reliability problems
+- `zpm show <pkg>`
+  - Show package information
 
-### Changed
+- `zpm files <pkg>`
+  - List package files
 
-- Rewritten build system
-- Improved Termux support
-- Improved Debian support
-- `make install` installs the current binary
+- `zpm which <file>`
+  - Find which package owns a file
 
-## Platform Status
+- `zpm depends <pkg>`
+  - Show package dependencies
 
-### Debian
+- `zpm rdepends <pkg>`
+  - Show reverse dependencies
 
-Support is now available.
+- `zpm hold <pkg>`
+  - Hold package updates
 
-### Termux
+- `zpm unhold <pkg>`
+  - Allow package updates again
 
-Supported.
+- `zpm manual <pkg>`
+  - Mark package as manually installed
 
-## Notes
+- `zpm auto <pkg>`
+  - Mark package as automatically installed
 
-This is still an alpha release.
+- `zpm policy <pkg>`
+  - Show package versions and repository priority
+
+- `zpm check`
+  - Check package database state
+
+- `zpm source <pkg>`
+  - Download package source
+
+- `zpm cache-clean`
+  - Clean apt cache
+
+## Improved
+
+- Improved Debian apt command integration
+- Improved package transaction output
+- Cleaner install/remove/upgrade UX
+
+## Fixed
+
+- Fixed command execution handling
+- Fixed package operation flow
+- Improved error reporting
+

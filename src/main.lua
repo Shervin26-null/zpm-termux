@@ -971,6 +971,103 @@ end)
 
 
 
+
+
+register("list",function()
+    os.execute("apt list --installed")
+end)
+
+register("outdated",function()
+    os.execute("apt list --upgradable")
+end)
+
+register("autoremove",function()
+    APT.run("autoremove")
+end)
+
+register("purge",function()
+    if argget(1) then
+        os.execute("apt purge '"..argget(1).."'")
+    end
+end)
+
+register("show",function()
+    if argget(1) then
+        os.execute("apt show '"..argget(1).."'")
+    end
+end)
+
+register("files",function()
+    if argget(1) then
+        os.execute("dpkg -L '"..argget(1).."'")
+    end
+end)
+
+register("which",function()
+    if argget(1) then
+        os.execute("dpkg -S '"..argget(1).."'")
+    end
+end)
+
+register("depends",function()
+    if argget(1) then
+        os.execute("apt-cache depends '"..argget(1).."'")
+    end
+end)
+
+register("rdepends",function()
+    if argget(1) then
+        os.execute("apt-cache rdepends '"..argget(1).."'")
+    end
+end)
+
+register("hold",function()
+    if argget(1) then
+        os.execute("apt-mark hold '"..argget(1).."'")
+    end
+end)
+
+register("unhold",function()
+    if argget(1) then
+        os.execute("apt-mark unhold '"..argget(1).."'")
+    end
+end)
+
+register("manual",function()
+    if argget(1) then
+        os.execute("apt-mark manual '"..argget(1).."'")
+    end
+end)
+
+register("auto",function()
+    if argget(1) then
+        os.execute("apt-mark auto '"..argget(1).."'")
+    end
+end)
+
+register("policy",function()
+    if argget(1) then
+        os.execute("apt-cache policy '"..argget(1).."'")
+    end
+end)
+
+
+
+register("source",function()
+    if argget(1) then
+        os.execute("apt source '"..argget(1).."'")
+    end
+end)
+
+register("cache-clean",function()
+    os.execute("apt clean")
+end)
+
+
+register("check",function()
+    APT.run("check")
+end)
+
 register("version",function()
 
     print(
